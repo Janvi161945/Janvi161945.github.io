@@ -10,18 +10,18 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
 <style>
 :root{
-  --bg:#0B0B0E;
-  --bg-2:#111116;
-  --line:#23232B;
-  --line-2:#2F2F39;
-  --text:#EDEDF0;
-  --muted:#8C8C99;
-  --dim:#5C5C68;
-  --accent:#FF5C8A;
+  --bg:#FAFAF8;
+  --bg-2:#F2F1ED;
+  --line:#E7E5E0;
+  --line-2:#D5D2CB;
+  --text:#17161B;
+  --muted:#55535D;
+  --dim:#8A8792;
+  --accent:#E0457B;
   --accent-soft:rgba(255,92,138,.12);
   --sans:"Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono:"Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
-  color-scheme:dark;
+  color-scheme:light;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -33,7 +33,7 @@ body{
 a{color:inherit;text-decoration:none}
 h1,h2,h3{margin:0;font-weight:600;line-height:1.08;text-wrap:balance}
 p{margin:0}
-::selection{background:var(--accent);color:#0B0B0E}
+::selection{background:var(--accent);color:#fff}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 .mono{font-family:var(--mono)}
 
@@ -41,7 +41,7 @@ p{margin:0}
 nav{
   position:sticky;top:env(safe-area-inset-top,0px);z-index:30;
   display:flex;align-items:center;justify-content:space-between;gap:16px;
-  padding-block:16px;background:linear-gradient(var(--bg) 60%, rgba(11,11,14,0));
+  padding-block:16px;background:linear-gradient(var(--bg) 60%, rgba(250,250,248,0));
 }
 .brand{font-family:var(--mono);font-size:14px;color:var(--text)}
 .brand span{color:var(--accent)}
@@ -67,12 +67,12 @@ nav{
 .hero-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
 .btn{
   display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:14.5px;font-weight:500;
-  padding:11px 18px;border-radius:10px;border:1px solid var(--line-2);background:var(--bg-2);color:var(--text);
+  padding:11px 18px;border-radius:10px;border:1px solid var(--line-2);background:#fff;color:var(--text);
   cursor:pointer;transition:border-color .15s, background .15s, transform .15s;
 }
 .btn:hover{border-color:var(--dim);transform:translateY(-1px)}
 .btn.primary{background:var(--text);color:var(--bg);border-color:var(--text)}
-.btn.primary:hover{background:#fff}
+.btn.primary:hover{background:#000}
 .btn svg{width:16px;height:16px}
 .facts{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:8px 36px;margin-top:48px;font-family:var(--mono);font-size:12.5px;color:var(--dim)}
 .facts b{display:block;font-family:var(--sans);font-size:24px;font-weight:600;color:var(--text);letter-spacing:-0.02em}
@@ -88,7 +88,7 @@ section{padding-block:72px;border-top:1px solid var(--line)}
 /* work */
 .work{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
 @media (max-width:760px){.work{grid-template-columns:1fr}}
-.w{background:var(--bg);padding:26px 24px;display:flex;flex-direction:column;gap:10px;transition:background .2s}
+.w{background:#fff;padding:26px 24px;display:flex;flex-direction:column;gap:10px;transition:background .2s}
 .w:hover{background:var(--bg-2)}
 .w .k{font-family:var(--mono);font-size:12px;color:var(--dim)}
 .w h3{font-size:19px;letter-spacing:-0.01em}
@@ -104,15 +104,21 @@ section{padding-block:72px;border-top:1px solid var(--line)}
 }
 .code .kw{color:var(--accent)}.code .s{color:var(--text)}.code .c{color:var(--dim)}
 
+.flowx{display:flex;flex-wrap:wrap;align-items:center;gap:10px;background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:18px}
+.fx{background:#fff;border:1px solid var(--line-2);border-radius:10px;padding:10px 14px;font-weight:600;font-size:15px}
+.fx small{display:block;font-family:var(--mono);font-weight:400;font-size:11px;color:var(--dim)}
+.fx-a{font-family:var(--mono);font-size:12px;color:var(--accent)}
+.fx-n{flex-basis:100%;font-family:var(--mono);font-size:12px;color:var(--dim)}
+.commit .h{font-family:var(--mono)}
 /* projects */
 .projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 @media (max-width:760px){.projects{grid-template-columns:1fr}}
 .p{
-  position:relative;border:1px solid var(--line);border-radius:16px;background:var(--bg);overflow:hidden;
+  position:relative;border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden;
   display:flex;flex-direction:column;transition:border-color .2s, transform .2s;
 }
 .p:hover{border-color:var(--line-2);transform:translateY(-2px)}
-.p::after{content:"";position:absolute;inset:0;border-radius:16px;pointer-events:none;background:radial-gradient(400px circle at var(--mx,50%) var(--my,0%), rgba(255,92,138,.08), transparent 45%);opacity:0;transition:opacity .2s}
+.p::after{content:"";position:absolute;inset:0;border-radius:16px;pointer-events:none;background:radial-gradient(400px circle at var(--mx,50%) var(--my,0%), rgba(224,69,123,.07), transparent 45%);opacity:0;transition:opacity .2s}
 .p:hover::after{opacity:1}
 .p.feature{grid-column:1 / -1;display:grid;grid-template-columns:1.05fr 1fr}
 @media (max-width:760px){.p.feature{grid-template-columns:1fr}}
@@ -129,7 +135,7 @@ section{padding-block:72px;border-top:1px solid var(--line)}
 .note{font-family:var(--mono);font-size:12px;color:var(--accent)}
 
 /* mock browser */
-.browser{width:100%;max-width:440px;border:1px solid var(--line-2);border-radius:12px;background:var(--bg);overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.browser{width:100%;max-width:440px;border:1px solid var(--line-2);border-radius:12px;background:#fff;overflow:hidden;box-shadow:0 24px 50px -28px rgba(23,22,27,.25)}
 .browser .bar{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid var(--line)}
 .browser .bar i{width:9px;height:9px;border-radius:50%;background:var(--line-2)}
 .browser .bar span{margin-left:10px;font-family:var(--mono);font-size:11px;color:var(--dim);background:var(--bg-2);border-radius:6px;padding:2px 10px}
@@ -149,7 +155,7 @@ section{padding-block:72px;border-top:1px solid var(--line)}
 
 /* pipeline */
 .pipe{display:flex;flex-direction:column;gap:0;width:100%;max-width:300px;font-family:var(--mono);font-size:12.5px}
-.pipe div{display:flex;justify-content:space-between;border:1px solid var(--line-2);border-radius:8px;padding:8px 12px;background:var(--bg);color:var(--text)}
+.pipe div{display:flex;justify-content:space-between;border:1px solid var(--line-2);border-radius:8px;padding:8px 12px;background:#fff;color:var(--text)}
 .pipe div small{color:var(--dim)}
 .pipe span{display:block;width:1px;height:14px;background:var(--line-2);margin-left:50%;position:relative;overflow:hidden}
 .pipe span::after{content:"";position:absolute;left:0;top:-6px;width:1px;height:6px;background:var(--accent);animation:drip 1.4s linear infinite}
@@ -159,7 +165,7 @@ section{padding-block:72px;border-top:1px solid var(--line)}
 /* plan */
 .plan{width:100%;max-width:320px;display:flex;flex-direction:column;gap:8px;font-size:13px}
 .plan .ask{align-self:flex-end;background:var(--text);color:var(--bg);border-radius:12px 12px 4px 12px;padding:8px 12px;font-size:12.5px}
-.plan .st{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:8px 10px;color:var(--muted)}
+.plan .st{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 10px;color:var(--muted)}
 .plan .st i{font-style:normal;font-family:var(--mono);font-size:11px;width:18px;color:var(--dim)}
 .plan .st.done{color:var(--dim);text-decoration:line-through}
 .plan .st.now{border-color:var(--accent);color:var(--text)}
@@ -189,7 +195,7 @@ section{padding-block:72px;border-top:1px solid var(--line)}
 .contact h2 span{color:var(--muted)}
 .contact p{color:var(--muted);font-size:18px;margin-top:16px;max-width:42ch}
 .mailrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:32px}
-.mailrow code{font-family:var(--mono);font-size:clamp(14px,3.6vw,17px);border:1px solid var(--line-2);border-radius:10px;padding:10px 16px;background:var(--bg-2);user-select:all;word-break:break-all}
+.mailrow code{font-family:var(--mono);font-size:clamp(14px,3.6vw,17px);border:1px solid var(--line-2);border-radius:10px;padding:10px 16px;background:#fff;user-select:all;word-break:break-all}
 #toast{font-family:var(--mono);font-size:12.5px;color:var(--accent)}
 .socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid var(--line);padding-block:24px 40px;font-family:var(--mono);font-size:12px;color:var(--dim)}
@@ -218,9 +224,9 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border
   <header class="hero" id="top">
     <canvas id="kg" aria-hidden="true"></canvas>
     <div class="hero-in">
-      <p class="prompt reveal">~/pune <b>$</b> whoami<span class="caret"></span></p>
+      <p class="prompt reveal">hi, I'm<span class="caret"></span></p>
       <h1 class="reveal d1">Janvi Pagariya<span class="dot">.</span></h1>
-      <p class="lede reveal d2">Data &amp; AI Engineer at <em>Graas</em>. I make messy commerce data make sense, and ship side projects for fun.</p>
+      <p class="lede reveal d2">A <em>Data &amp; AI Engineer</em> at Graas in Pune. I help online brands understand their sales and customers, build AI tools that answer business questions, and make websites and apps on the side.</p>
       <div class="hero-cta reveal d3">
         <a class="btn primary" href="#projects">See projects</a>
         <a class="btn" href="https://github.com/Janvi161945" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.83 1.18 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>GitHub</a>
@@ -237,50 +243,50 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border
 
   <section id="work">
     <div class="sec-head">
-      <div><span class="label">01 / day job</span><h2>What I build at Graas</h2></div>
-      <span class="mono">AI-native eCommerce · 2023 → now</span>
+      <div><span class="label">01 / my job</span><h2>What I do at Graas</h2></div>
+      <span class="mono">eCommerce AI company · 2023 to now</span>
     </div>
 
     <div class="work">
       <div class="w wide">
         <div class="graph-mini">
           <div>
-            <span class="k">knowledge graph</span>
-            <h3>AI Product Discovery</h3>
-            <p style="margin-top:8px">A Neo4j graph that connects products, customers, categories and purchase patterns, so brands can find what sells together and why.</p>
-            <div class="tags" style="margin-top:12px"><span>Neo4j</span><span>Cypher</span><span>retrieval</span></div>
+            <span class="k">smart recommendations</span>
+            <h3>Helping brands see what sells together</h3>
+            <p style="margin-top:8px">I built a system that links products, customers and past orders, like a map of who buys what. Brands use it to spot products that sell well together and to suggest the right item to the right shopper.</p>
+            <div class="tags" style="margin-top:12px"><span>Knowledge Graph</span><span>Neo4j</span><span>Recommendations</span></div>
           </div>
-<div class="code"><span class="kw">MATCH</span> (c:Customer)-[:BOUGHT]-&gt;(p:Product)
-      -[:BOUGHT_WITH]-&gt;(rec:Product)
-<span class="kw">WHERE</span> p.category = <span class="s">'skincare'</span>
-<span class="kw">RETURN</span> rec.name, count(*) <span class="kw">AS</span> score
-<span class="kw">ORDER BY</span> score <span class="kw">DESC LIMIT</span> 5
-<span class="c">// the graph knows what you'll buy next</span></div>
+<div class="flowx" aria-label="Example: shoppers who buy a serum also buy sunscreen">
+            <div class="fx"><small>shopper buys</small>Face serum</div>
+            <div class="fx-a">often bought with →</div>
+            <div class="fx"><small>so we suggest</small>Sunscreen SPF 50</div>
+            <div class="fx-n">↳ an example of the patterns it finds across thousands of orders</div>
+          </div>
         </div>
       </div>
       <div class="w">
         <span class="k">data pipelines</span>
-        <h3>Raw data in, clean data out</h3>
-        <p>Pipelines for product catalogs, customer behaviour and transactions that feed analytics and AI apps.</p>
+        <h3>Turning messy data into clean reports</h3>
+        <p>Every day, huge amounts of product, customer and sales data come in. I build the systems that clean and organise it automatically, so teams get reports and dashboards they can trust.</p>
         <div class="tags"><span>Python</span><span>SQL</span><span>Snowflake</span><span>dbt</span><span>Airflow</span></div>
       </div>
       <div class="w">
-        <span class="k">llm agents</span>
-        <h3>AI agents that know the business</h3>
-        <p>Conversational agents that pull enterprise data through RAG and MCP and answer with real context.</p>
+        <span class="k">ai assistants</span>
+        <h3>AI chat assistants for business</h3>
+        <p>Like ChatGPT, but it knows the company's own data. Teams ask questions in plain English, such as "which products are trending?", and get answers from real numbers.</p>
         <div class="tags"><span>LLMs</span><span>RAG</span><span>MCP</span><span>Agentic AI</span></div>
       </div>
       <div class="w">
-        <span class="k">search</span>
-        <h3>Search that gets you</h3>
-        <p>Retrieval logic and ranking strategies that make product search more relevant.</p>
-        <div class="tags"><span>ranking</span><span>retrieval</span></div>
+        <span class="k">product search</span>
+        <h3>Better search results</h3>
+        <p>Improving how products are ranked in search, so shoppers find what they want in fewer clicks.</p>
+        <div class="tags"><span>Search</span><span>Ranking</span></div>
       </div>
       <div class="w">
-        <span class="k">root cause</span>
+        <span class="k">problem solving</span>
         <h3>Data detective</h3>
-        <p>When the dashboard and the source disagree, I find out why. Logs, queries, API traces, case closed.</p>
-        <div class="tags"><span>debugging</span><span>query tuning</span></div>
+        <p>When the numbers on a dashboard look wrong, I track down why and fix it. Working closely with product, engineering and QA teams.</p>
+        <div class="tags"><span>Root Cause Analysis</span><span>Teamwork</span></div>
       </div>
     </div>
   </section>
@@ -308,7 +314,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border
         <div class="body">
           <span class="note">freelance · live</span>
           <h3>CAMPREP job portal &amp; resume site</h3>
-          <p>CA students were drowning in generic job posts. I built CAMPREP a portal that sorts hand-reviewed openings by CA stage, with a job tracker and a resume site, all mobile-first.</p>
+          <p>CA students were lost in piles of unrelated job posts. I built CAMPREP a job site that shows only jobs that match their stage of study, plus a job tracker and a resume site. Works great on phones.</p>
           <span class="meta">web · mobile-first · freelance client</span>
           <div class="links">
             <a href="https://jobs.camprep.com/" target="_blank" rel="noopener">jobs.camprep.com ↗</a>
@@ -322,7 +328,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border
         <div class="body">
           <span class="note">built for my dad's shop</span>
           <h3>Merchant Calculator</h3>
-          <p>My dad's wholesale bills meant adding hamal and weighage charges by hand, all day. This does it instantly. Two versions: an Arduino keypad + LCD device, and a Flask app.</p>
+          <p>My dad runs a wholesale business, and every bill meant adding loading and weighing charges by hand. I built a small keypad gadget, and a web app version, that does it instantly with no mistakes.</p>
           <span class="meta">Arduino · Python · Flask</span>
           <div class="links"><a href="https://drive.google.com/file/d/1WNbXiQXN_DmQBbgCjFqKJRdXYkNxs77y/view" target="_blank" rel="noopener">watch demo ↗</a></div>
         </div>
@@ -342,7 +348,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border
         <div class="body">
           <span class="note">snap → spreadsheet</span>
           <h3>Bill Scanner</h3>
-          <p>Photograph a Tally bill and the buyer, totals, CGST and SGST land in Google Sheets in about 3–7 seconds.</p>
+          <p>Take a photo of a bill and the details (shop name, totals, GST) are typed into a Google Sheet for you, in about 3–7 seconds.</p>
           <span class="meta">OCR · Python · Flask · Sheets API</span>
           <div class="links">
             <a href="https://huggingface.co/spaces/Javni/Bill_Scanner_Data" target="_blank" rel="noopener">live demo ↗</a>
@@ -363,7 +369,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border
         <div class="body">
           <span class="note">ai tutor, but personal</span>
           <h3>Personalised AI Learning</h3>
-          <p>Tell it what you know and what you want to learn. AI agents plan a path that fits you, with structured LLM output so the plan is actually usable.</p>
+          <p>Tell it what you already know and what you want to learn. The AI builds a step-by-step study plan made just for you.</p>
           <span class="meta">Agents · LLM planner · Ollama · Docker</span>
           <div class="links"><a href="https://huggingface.co/spaces/Javni/ai-learning-system" target="_blank" rel="noopener">live demo ↗</a></div>
         </div>
@@ -383,36 +389,36 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border
 
   <section id="stack">
     <div class="sec-head">
-      <div><span class="label">03 / toolbox</span><h2>Stack</h2></div>
+      <div><span class="label">03 / skills</span><h2>Tools I use</h2></div>
     </div>
     <div class="stack">
-      <div><h3>// data</h3><ul><li>Python</li><li>SQL</li><li>Snowflake</li><li>dbt</li><li>Airflow</li><li>Neo4j</li></ul></div>
-      <div><h3>// ai</h3><ul><li>LLMs</li><li>RAG</li><li>MCP</li><li>Agentic AI</li><li>Knowledge Graphs</li><li>OCR</li><li>Ollama</li></ul></div>
-      <div><h3>// build</h3><ul><li>APIs</li><li>Flask</li><li>HTML / CSS / JS</li><li>Arduino</li><li>Docker</li><li>Git</li></ul></div>
+      <div><h3>Data</h3><ul><li>Python</li><li>SQL</li><li>Snowflake</li><li>dbt</li><li>Airflow</li><li>Neo4j</li></ul></div>
+      <div><h3>AI</h3><ul><li>LLMs</li><li>RAG</li><li>MCP</li><li>Agentic AI</li><li>Knowledge Graphs</li><li>OCR</li><li>Ollama</li></ul></div>
+      <div><h3>Building apps &amp; websites</h3><ul><li>APIs</li><li>Flask</li><li>HTML / CSS / JS</li><li>Arduino</li><li>Docker</li><li>Git</li></ul></div>
     </div>
   </section>
 
   <section id="log">
     <div class="sec-head">
-      <div><span class="label">04 / the lore</span><h2>git log --me</h2></div>
+      <div><span class="label">04 / my story</span><h2>How I got here</h2></div>
       <span class="mono">newest first</span>
     </div>
     <div class="log">
-      <div class="top"><span>janvi/life</span><span>main</span></div>
-      <div class="commit"><span class="h">a1f9c2e</span><span class="m"><b>feat:</b>shipped CAMPREP job portal + resume site</span><span class="d">freelance</span></div>
-      <div class="commit"><span class="h">7be40d1</span><span class="m"><b>feat:</b>bill scanner, because typing bills is a crime</span><span class="d">side project</span></div>
-      <div class="commit"><span class="h">3c8e5aa</span><span class="m"><b>feat:</b>AI agents that plan your learning path</span><span class="d">side project</span></div>
-      <div class="commit"><span class="h">e02d7f4</span><span class="m"><b>fix:</b>dad's billing maths (merchant calculator)</span><span class="d">side project</span></div>
-      <div class="commit"><span class="h">9d11b63</span><span class="m"><b>feat:</b>joined Graas as Data &amp; Software Engineer</span><span class="d">2023</span></div>
-      <div class="commit"><span class="h">5f3a0c8</span><span class="m"><b>chore:</b>graduated B.Tech, AI &amp; Data Science</span><span class="d">before</span></div>
-      <div class="commit"><span class="h">0000001</span><span class="m"><b>init:</b>wrote my first SELECT *, never looked back</span><span class="d">day 1</span></div>
+      <div class="top"><span>the highlights reel</span><span>latest first</span></div>
+      <div class="commit"><span class="h">now</span><span class="m">Built a job portal and resume site for CAMPREP</span><span class="d">freelance</span></div>
+      <div class="commit"><span class="h">✦</span><span class="m">Made a bill scanner, because typing bills by hand should be illegal</span><span class="d">side project</span></div>
+      <div class="commit"><span class="h">✦</span><span class="m">Built an AI tutor that plans what you should learn next</span><span class="d">side project</span></div>
+      <div class="commit"><span class="h">✦</span><span class="m">Fixed my dad's billing maths with a gadget I built</span><span class="d">side project</span></div>
+      <div class="commit"><span class="h">2023</span><span class="m">Joined Graas as a Data &amp; Software Engineer</span><span class="d">2023</span></div>
+      <div class="commit"><span class="h">🎓</span><span class="m">Graduated: B.Tech in AI &amp; Data Science</span><span class="d">before</span></div>
+      <div class="commit"><span class="h">day 1</span><span class="m">Wrote my first line of SQL and never looked back</span><span class="d">day 1</span></div>
     </div>
   </section>
 
   <section class="contact" id="contact">
     <span class="label">05 / contact</span>
     <h2>Let's build something<span>.</span></h2>
-    <p>A website, a data pipeline, or an AI thing that actually works. My inbox is open.</p>
+    <p>Hiring for data or AI roles, or need a website or app built? My inbox is open.</p>
     <div class="mailrow">
       <code id="email">pagariyajanvi@gmail.com</code>
       <button class="btn primary" id="copy" type="button">Copy email</button>
@@ -471,7 +477,7 @@ document.querySelectorAll('.p').forEach(card => {
         const b = nodes[j], d = Math.hypot(a.x-b.x, a.y-b.y);
         if (d < 120){
           const near = Math.hypot((a.x+b.x)/2-mouse.x,(a.y+b.y)/2-mouse.y) < 140;
-          ctx.strokeStyle = near ? `rgba(255,92,138,${(1-d/120)*.7})` : `rgba(237,237,240,${(1-d/120)*.13*fade(a.x)})`;
+          ctx.strokeStyle = near ? `rgba(224,69,123,${(1-d/120)*.7})` : `rgba(23,22,27,${(1-d/120)*.12*fade(a.x)})`;
           ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
         }
       }
@@ -479,9 +485,9 @@ document.querySelectorAll('.p').forEach(card => {
     ctx.font = '11px "Geist Mono", monospace';
     for (const n of nodes){
       const near = Math.hypot(n.x-mouse.x, n.y-mouse.y) < 140;
-      ctx.fillStyle = near ? '#FF5C8A' : `rgba(237,237,240,${.55*fade(n.x)})`;
+      ctx.fillStyle = near ? '#E0457B' : `rgba(23,22,27,${.4*fade(n.x)})`;
       ctx.beginPath(); ctx.arc(n.x,n.y,n.r,0,Math.PI*2); ctx.fill();
-      if (n.l){ ctx.fillStyle = near ? '#FF5C8A' : `rgba(140,140,153,${fade(n.x)})`; ctx.fillText(n.l, n.x+6, n.y+4); }
+      if (n.l){ ctx.fillStyle = near ? '#E0457B' : `rgba(138,135,146,${fade(n.x)})`; ctx.fillText(n.l, n.x+6, n.y+4); }
       if (!reduce){
         n.x += n.vx; n.y += n.vy;
         if (n.x < 0 || n.x > W) n.vx *= -1;
