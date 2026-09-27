@@ -111,7 +111,8 @@ section{padding-block:72px;border-top:1px solid var(--line)}
 .fx-n{flex-basis:100%;font-family:var(--mono);font-size:12px;color:var(--dim)}
 .commit .h{font-family:var(--mono)}
 /* projects */
-.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:980px){.projects{grid-template-columns:repeat(2,minmax(0,1fr))}.projects .p:last-child{grid-column:1 / -1}}
 @media (max-width:760px){.projects{grid-template-columns:1fr}}
 .p{
   position:relative;border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden;
@@ -181,12 +182,12 @@ section{padding-block:72px;border-top:1px solid var(--line)}
 /* git log */
 .log{font-family:var(--mono);font-size:13.5px;border:1px solid var(--line);border-radius:16px;overflow:hidden}
 .log .top{display:flex;justify-content:space-between;padding:12px 18px;border-bottom:1px solid var(--line);color:var(--dim);font-size:12px;background:var(--bg-2)}
-.commit{display:grid;grid-template-columns:78px 1fr auto;gap:14px;padding:13px 18px;border-bottom:1px solid var(--line);align-items:baseline}
+.commit{display:grid;grid-template-columns:78px 1fr;gap:14px;padding:13px 18px;border-bottom:1px solid var(--line);align-items:baseline}
 .commit:last-child{border-bottom:0}
 .commit .h{color:var(--accent)}
 .commit .m{color:var(--text);font-family:var(--sans);font-size:15px}
 .commit .m b{font-family:var(--mono);font-weight:500;font-size:12.5px;color:var(--muted);margin-right:6px}
-.commit .d{color:var(--dim);font-size:12px;white-space:nowrap}
+.commit .d{display:none}
 @media (max-width:560px){.commit{grid-template-columns:1fr;gap:2px}.commit .d{order:-1}}
 
 /* contact */
@@ -226,7 +227,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border
     <div class="hero-in">
       <p class="prompt reveal">hi, I'm<span class="caret"></span></p>
       <h1 class="reveal d1">Janvi Pagariya<span class="dot">.</span></h1>
-      <p class="lede reveal d2">A <em>Data &amp; AI Engineer</em> at Graas in Pune. I help online brands understand their sales and customers, build AI tools that answer business questions, and make websites and apps on the side.</p>
+      <p class="lede reveal d2"><em>Data &amp; AI Engineer</em> at Graas. I turn messy data into smart tools, and build apps on the side.</p>
       <div class="hero-cta reveal d3">
         <a class="btn primary" href="#projects">See projects</a>
         <a class="btn" href="https://github.com/Janvi161945" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.83 1.18 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>GitHub</a>
@@ -244,7 +245,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border
   <section id="work">
     <div class="sec-head">
       <div><span class="label">01 / my job</span><h2>What I do at Graas</h2></div>
-      <span class="mono">eCommerce AI company · 2023 to now</span>
+      <span class="mono">2023 → now</span>
     </div>
 
     <div class="work">
@@ -253,39 +254,38 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border
           <div>
             <span class="k">smart recommendations</span>
             <h3>Helping brands see what sells together</h3>
-            <p style="margin-top:8px">I built a system that links products, customers and past orders, like a map of who buys what. Brands use it to spot products that sell well together and to suggest the right item to the right shopper.</p>
+            <p style="margin-top:8px">A map of who buys what, so brands can recommend the right product.</p>
             <div class="tags" style="margin-top:12px"><span>Knowledge Graph</span><span>Neo4j</span><span>Recommendations</span></div>
           </div>
 <div class="flowx" aria-label="Example: shoppers who buy a serum also buy sunscreen">
             <div class="fx"><small>shopper buys</small>Face serum</div>
             <div class="fx-a">often bought with →</div>
             <div class="fx"><small>so we suggest</small>Sunscreen SPF 50</div>
-            <div class="fx-n">↳ an example of the patterns it finds across thousands of orders</div>
           </div>
         </div>
       </div>
       <div class="w">
         <span class="k">data pipelines</span>
-        <h3>Turning messy data into clean reports</h3>
-        <p>Every day, huge amounts of product, customer and sales data come in. I build the systems that clean and organise it automatically, so teams get reports and dashboards they can trust.</p>
+        <h3>Messy data → clean reports</h3>
+        <p>Automated pipelines that teams can trust.</p>
         <div class="tags"><span>Python</span><span>SQL</span><span>Snowflake</span><span>dbt</span><span>Airflow</span></div>
       </div>
       <div class="w">
         <span class="k">ai assistants</span>
-        <h3>AI chat assistants for business</h3>
-        <p>Like ChatGPT, but it knows the company's own data. Teams ask questions in plain English, such as "which products are trending?", and get answers from real numbers.</p>
+        <h3>AI chat assistants</h3>
+        <p>Like ChatGPT, but it knows the company's data.</p>
         <div class="tags"><span>LLMs</span><span>RAG</span><span>MCP</span><span>Agentic AI</span></div>
       </div>
       <div class="w">
         <span class="k">product search</span>
-        <h3>Better search results</h3>
-        <p>Improving how products are ranked in search, so shoppers find what they want in fewer clicks.</p>
+        <h3>Better product search</h3>
+        <p>Shoppers find what they want, faster.</p>
         <div class="tags"><span>Search</span><span>Ranking</span></div>
       </div>
       <div class="w">
         <span class="k">problem solving</span>
         <h3>Data detective</h3>
-        <p>When the numbers on a dashboard look wrong, I track down why and fix it. Working closely with product, engineering and QA teams.</p>
+        <p>Numbers look wrong? I find out why.</p>
         <div class="tags"><span>Root Cause Analysis</span><span>Teamwork</span></div>
       </div>
     </div>
@@ -294,7 +294,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border
   <section id="projects">
     <div class="sec-head">
       <div><span class="label">02 / after hours</span><h2>Side projects</h2></div>
-      <span class="mono">because one job is never enough</span>
+      
     </div>
 
     <div class="projects">
@@ -314,8 +314,8 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border
         <div class="body">
           <span class="note">freelance · live</span>
           <h3>CAMPREP job portal &amp; resume site</h3>
-          <p>CA students were lost in piles of unrelated job posts. I built CAMPREP a job site that shows only jobs that match their stage of study, plus a job tracker and a resume site. Works great on phones.</p>
-          <span class="meta">web · mobile-first · freelance client</span>
+          <p>A job site for CA students that only shows jobs matching their stage. Plus a resume builder.</p>
+          
           <div class="links">
             <a href="https://jobs.camprep.com/" target="_blank" rel="noopener">jobs.camprep.com ↗</a>
             <a href="https://resume.camprep.com/" target="_blank" rel="noopener">resume.camprep.com ↗</a>
@@ -328,7 +328,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border
         <div class="body">
           <span class="note">built for my dad's shop</span>
           <h3>Merchant Calculator</h3>
-          <p>My dad runs a wholesale business, and every bill meant adding loading and weighing charges by hand. I built a small keypad gadget, and a web app version, that does it instantly with no mistakes.</p>
+          <p>A keypad gadget that does my dad's shop billing in seconds, with no mistakes.</p>
           <span class="meta">Arduino · Python · Flask</span>
           <div class="links"><a href="https://drive.google.com/file/d/1WNbXiQXN_DmQBbgCjFqKJRdXYkNxs77y/view" target="_blank" rel="noopener">watch demo ↗</a></div>
         </div>
@@ -348,7 +348,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border
         <div class="body">
           <span class="note">snap → spreadsheet</span>
           <h3>Bill Scanner</h3>
-          <p>Take a photo of a bill and the details (shop name, totals, GST) are typed into a Google Sheet for you, in about 3–7 seconds.</p>
+          <p>Snap a bill, and it fills your Google Sheet in seconds.</p>
           <span class="meta">OCR · Python · Flask · Sheets API</span>
           <div class="links">
             <a href="https://huggingface.co/spaces/Javni/Bill_Scanner_Data" target="_blank" rel="noopener">live demo ↗</a>
@@ -369,21 +369,13 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border
         <div class="body">
           <span class="note">ai tutor, but personal</span>
           <h3>Personalised AI Learning</h3>
-          <p>Tell it what you already know and what you want to learn. The AI builds a step-by-step study plan made just for you.</p>
+          <p>An AI tutor that builds a study plan just for you.</p>
           <span class="meta">Agents · LLM planner · Ollama · Docker</span>
           <div class="links"><a href="https://huggingface.co/spaces/Javni/ai-learning-system" target="_blank" rel="noopener">live demo ↗</a></div>
         </div>
       </article>
 
-      <article class="p">
-        <div class="vis"><div style="text-align:center"><div style="font-size:44px;font-weight:600;letter-spacing:-0.04em">your idea<span style="color:var(--accent)">?</span></div><div class="mono" style="font-size:12px;color:var(--dim);margin-top:6px">// this slot is literally free</div></div></div>
-        <div class="body">
-          <span class="note">next up</span>
-          <h3>Your project here</h3>
-          <p>Websites for institutes and small businesses, automations that kill boring manual work, and dashboards for your data.</p>
-          <div class="links"><a href="#contact">let's talk →</a></div>
-        </div>
-      </article>
+      
     </div>
   </section>
 
@@ -401,14 +393,11 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border
   <section id="log">
     <div class="sec-head">
       <div><span class="label">04 / my story</span><h2>How I got here</h2></div>
-      <span class="mono">newest first</span>
+      
     </div>
     <div class="log">
-      <div class="top"><span>the highlights reel</span><span>latest first</span></div>
-      <div class="commit"><span class="h">now</span><span class="m">Built a job portal and resume site for CAMPREP</span><span class="d">freelance</span></div>
-      <div class="commit"><span class="h">✦</span><span class="m">Made a bill scanner, because typing bills by hand should be illegal</span><span class="d">side project</span></div>
-      <div class="commit"><span class="h">✦</span><span class="m">Built an AI tutor that plans what you should learn next</span><span class="d">side project</span></div>
-      <div class="commit"><span class="h">✦</span><span class="m">Fixed my dad's billing maths with a gadget I built</span><span class="d">side project</span></div>
+      
+      <div class="commit"><span class="h">now</span><span class="m">Building data &amp; AI tools, and side projects for fun</span><span class="d">today</span></div>
       <div class="commit"><span class="h">2023</span><span class="m">Joined Graas as a Data &amp; Software Engineer</span><span class="d">2023</span></div>
       <div class="commit"><span class="h">🎓</span><span class="m">Graduated: B.Tech in AI &amp; Data Science</span><span class="d">before</span></div>
       <div class="commit"><span class="h">day 1</span><span class="m">Wrote my first line of SQL and never looked back</span><span class="d">day 1</span></div>
@@ -418,7 +407,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border
   <section class="contact" id="contact">
     <span class="label">05 / contact</span>
     <h2>Let's build something<span>.</span></h2>
-    <p>Hiring for data or AI roles, or need a website or app built? My inbox is open.</p>
+    <p>Hiring, or need something built? Say hi.</p>
     <div class="mailrow">
       <code id="email">pagariyajanvi@gmail.com</code>
       <button class="btn primary" id="copy" type="button">Copy email</button>
