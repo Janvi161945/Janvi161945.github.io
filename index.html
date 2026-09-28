@@ -18,7 +18,7 @@
   --muted:#55535D;
   --dim:#8A8792;
   --accent:#E0457B;
-  --accent-soft:rgba(255,92,138,.12);
+  --accent-soft:rgba(224,69,123,.1);
   --sans:"Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono:"Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
   color-scheme:light;
@@ -140,6 +140,34 @@ section{padding-block:72px;border-top:1px solid var(--line)}
 .body .links a:hover{border-color:var(--accent);color:var(--accent)}
 .note{font-family:var(--mono);font-size:12px;color:var(--accent)}
 
+.head{padding:22px 24px 16px;display:flex;flex-direction:column;gap:4px}
+.head h3{font-size:22px;letter-spacing:-0.02em}
+.p .body{padding-top:18px}
+.p.feature{grid-template-areas:"vis head" "vis body";grid-template-rows:auto 1fr}
+.p.feature .head{grid-area:head;padding-bottom:0}
+.p.feature .vis{grid-area:vis}
+.p.feature .body{grid-area:body;padding-top:10px}
+@media (max-width:760px){.p.feature{grid-template-areas:"head" "vis" "body";grid-template-rows:auto}}
+.vis{border-top:1px solid var(--line)}
+.p.feature .vis{border-top:0}
+@media (max-width:760px){.p.feature .vis{border-top:1px solid var(--line)}}
+.snap{display:flex;align-items:center;gap:8px;width:100%;justify-content:center}
+.receipt{background:#fff;border:1px solid var(--line-2);border-radius:6px;padding:10px 12px;font-family:var(--mono);font-size:10.5px;display:flex;flex-direction:column;gap:3px;min-width:0;flex:0 0 100px;transform:rotate(-3deg);box-shadow:0 10px 20px -14px rgba(23,22,27,.35);background-image:repeating-linear-gradient(transparent 0 17px, transparent 17px)}
+.receipt b{font-family:var(--sans);font-size:11.5px;margin-bottom:3px}
+.receipt span{display:flex;justify-content:space-between;gap:6px;color:var(--muted)}
+.receipt span.t{color:var(--text);font-weight:500;border-top:1px dashed var(--line-2);padding-top:3px;margin-top:2px}
+.receipt i{font-style:normal}
+.snap-a{display:flex;flex-direction:column;align-items:center;font-family:var(--mono);font-size:10.5px;color:var(--accent);flex:none}
+.snap-a span{font-size:20px}
+.sheet{background:#fff;border:1px solid var(--line-2);border-radius:8px;overflow:hidden;font-size:11px;flex:1 1 0;max-width:190px;min-width:0}
+.sh-top{font-family:var(--mono);font-size:10px;color:var(--dim);padding:5px 8px;border-bottom:1px solid var(--line)}
+.sh-r{display:grid;grid-template-columns:1.5fr 1fr;border-bottom:1px solid var(--line)}
+.sh-r:last-child{border-bottom:0}
+.sh-r span{padding:5px 7px;border-right:1px solid var(--line);white-space:nowrap}
+.sh-r span:last-child{border-right:0}
+.sh-r.h{background:var(--bg-2);font-weight:600;color:var(--muted)}
+.sh-r.new{background:var(--accent-soft);color:var(--text);font-weight:600;animation:flash 2.4s ease-in-out infinite}
+@keyframes flash{0%,100%{background:var(--accent-soft)}50%{background:rgba(224,69,123,.22)}}
 /* mock browser */
 .browser{width:100%;max-width:440px;border:1px solid var(--line-2);border-radius:12px;background:#fff;overflow:hidden;box-shadow:0 24px 50px -28px rgba(23,22,27,.25)}
 .browser .bar{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid var(--line)}
@@ -311,6 +339,8 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border
 
     <div class="projects">
       <article class="p feature">
+        <div class="head"><span class="note">freelance · live</span>
+          <h3>CAMPREP job portal &amp; resume site</h3></div>
         <div class="vis">
           <div class="browser" aria-label="Illustration of the CAMPREP job portal">
             <div class="bar"><i></i><i></i><i></i><span>jobs.camprep.com</span></div>
@@ -324,8 +354,6 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border
           </div>
         </div>
         <div class="body">
-          <span class="note">freelance · live</span>
-          <h3>CAMPREP job portal &amp; resume site</h3>
           <p>A job site for CA students that only shows jobs matching their stage. Plus a resume builder.</p>
           
           <div class="links">
@@ -336,10 +364,10 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border
       </article>
 
       <article class="p">
+        <div class="head"><span class="note">built for my dad's shop</span>
+          <h3>Merchant Calculator</h3></div>
         <div class="vis photo"><img src="merchant-calc.png" alt="Arduino merchant calculator with a 4x4 keypad and LCD screen"></div>
         <div class="body">
-          <span class="note">built for my dad's shop</span>
-          <h3>Merchant Calculator</h3>
           <p>A keypad gadget that does my dad's shop billing in seconds, with no mistakes.</p>
           <span class="meta">Arduino · Python · Flask</span>
           <div class="links"><a href="https://drive.google.com/file/d/1WNbXiQXN_DmQBbgCjFqKJRdXYkNxs77y/view" target="_blank" rel="noopener">watch demo ↗</a></div>
@@ -347,19 +375,26 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border
       </article>
 
       <article class="p">
+        <div class="head"><span class="note">snap → spreadsheet</span>
+          <h3>Bill Scanner</h3></div>
         <div class="vis">
-          <div class="pipe" aria-label="Bill scanner pipeline">
-            <div>camera <small>upload</small></div><span></span>
-            <div>flask api <small>receive</small></div><span></span>
-            <div>ocr <small>read text</small></div><span></span>
-            <div>parser <small>find fields</small></div><span></span>
-            <div>validator <small>check maths</small></div><span></span>
-            <div class="end">google sheets <small>✓</small></div>
+          <div class="snap" aria-label="A paper bill turns into a filled row in Google Sheets">
+            <div class="receipt">
+              <b>Sharma Traders</b>
+              <span>Rice<i>₹3,000</i></span>
+              <span>Dal<i>₹1,250</i></span>
+              <span class="t">Total<i>₹4,250</i></span>
+                          </div>
+            <div class="snap-a"><span>📸</span>snap</div>
+            <div class="sheet">
+              <div class="sh-top">Google Sheets</div>
+              <div class="sh-r h"><span>Shop</span><span>Total</span></div>
+              <div class="sh-r"><span>Gupta</span><span>₹2,180</span></div>
+              <div class="sh-r new"><span>Sharma</span><span>₹4,250</span></div>
+            </div>
           </div>
         </div>
         <div class="body">
-          <span class="note">snap → spreadsheet</span>
-          <h3>Bill Scanner</h3>
           <p>Snap a bill, and it fills your Google Sheet in seconds.</p>
           <span class="meta">OCR · Python · Flask · Sheets API</span>
           <div class="links">
@@ -370,6 +405,8 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border
       </article>
 
       <article class="p">
+        <div class="head"><span class="note">ai tutor, but personal</span>
+          <h3>Personalised AI Learning</h3></div>
         <div class="vis">
           <div class="plan" aria-label="Example personalised learning plan">
             <div class="ask">I know Excel. Teach me SQL.</div>
@@ -379,8 +416,6 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border
           </div>
         </div>
         <div class="body">
-          <span class="note">ai tutor, but personal</span>
-          <h3>Personalised AI Learning</h3>
           <p>An AI tutor that builds a study plan just for you.</p>
           <span class="meta">Agents · LLM planner · Ollama · Docker</span>
           <div class="links"><a href="https://huggingface.co/spaces/Javni/ai-learning-system" target="_blank" rel="noopener">live demo ↗</a></div>
