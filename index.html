@@ -123,7 +123,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
 <nav><div class="wrap">
   <a class="brand" href="#top">janvi<span>.</span>dev</a>
   <div class="links"><a href="#work">Work</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div>
-  <span class="status"><i></i>open to full-time · Mumbai</span>
+  <span class="status"><i></i>open to full-time</span>
 </div></nav>
 
 <main class="wrap">
@@ -198,7 +198,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
   <div class="socials"><a class="btn" href="https://github.com/Janvi161945" target="_blank" rel="noopener">GitHub ↗</a><a class="btn" href="https://linkedin.com/in/janvipagariya" target="_blank" rel="noopener">LinkedIn ↗</a><a class="btn" href="https://x.com/PagariyaJanvi" target="_blank" rel="noopener">X ↗</a></div>
 </section>
 </main>
-<footer><div class="wrap"><span>© Janvi Pagariya · Pune → Mumbai</span><span>1 person · 22 nodes · ∞ coffee</span></div></footer>
+<footer><div class="wrap"><span>© Janvi Pagariya · Pune</span><span>1 person · 21 nodes · ∞ coffee</span></div></footer>
 
 <script>
 (() => {
@@ -224,11 +224,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
     {id:'mcp', x:240, y:430, t:'skill', l:'MCP', d:'Connecting AI agents to tools and data.', h:'#skills'},
     {id:'ocr', x:570, y:380, t:'skill', l:'OCR', d:'Reading text from bill photos.', h:'#skills'},
     {id:'ard', x:420, y:440, t:'skill', l:'Arduino', d:'Hardware for the merchant calculator.', h:'#skills'},
-    {id:'mum', x:540, y:60, t:'org', l:'Mumbai', d:'Next stop. Open to full-time Data & AI roles.', h:'#contact'},
     {id:'cof', x:262, y:292, t:'skill', l:'∞ ☕', d:'Infinite cups of coffee.', h:'#skills'}
   ];
   const E = [['me','graas','WORKS_AT'],['me','vu','STUDIED_AT'],['graas','kg','BUILT'],['graas','pipe','BUILT'],['graas','ai','BUILT'],['graas','search','BUILT'],
-    ['me','camp','BUILT'],['me','bill','BUILT'],['me','tutor','BUILT'],['me','calc','BUILT'],['me','mum','MOVING_TO'],['me','cof','RUNS_ON'],
+    ['me','camp','BUILT'],['me','bill','BUILT'],['me','tutor','BUILT'],['me','calc','BUILT'],['me','cof','RUNS_ON'],
     ['pipe','snow','USES'],['pipe','dbt','USES'],['pipe','sql','USES'],['kg','neo','USES'],['ai','llm','USES'],['ai','mcp','USES'],['bill','ocr','USES'],['bill','py','USES'],
     ['tutor','llm','USES'],['calc','ard','USES'],['calc','py','USES'],['me','py','USES']];
   const by = Object.fromEntries(N.map(n => [n.id, n]));
@@ -248,7 +247,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
     const n = by[id];
     edges.forEach(e => { const on = e.a === id || e.b === id; e.line.classList.toggle('hot', on); e.lab.classList.toggle('hot', on); });
     document.querySelectorAll('.node').forEach(g => g.classList.toggle('hot', g.dataset.id === id));
-    const typ = {person:'Person', org:n.id === 'mum' ? 'City' : 'Organisation', work:'Work', proj:'Project', skill:'Skill'}[n.t];
+    const typ = {person:'Person', org:'Organisation', work:'Work', proj:'Project', skill:'Skill'}[n.t];
     panel.innerHTML = `<span class="t">(:${typ})</span><b>${n.l}</b><p>${n.d}</p><a href="${n.h}">jump to it →</a>`;
   };
   N.forEach((n, i) => {
